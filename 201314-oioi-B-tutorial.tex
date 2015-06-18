@@ -1,0 +1,40 @@
+\Tutorial	Задача досить складна тим, що треба дуже акуратно розглянути всі випадки, і разом з тим дуже проста тим, що для остаточної реалізації програми не\nolinebreak[3] потрібні ніякі засоби, крім розгалужень та присвоєнь. 
+
+
+
+{
+
+\def\leftColumnWidth{0.4\textwidth}
+\def\rightColumnWidth{0.55\textwidth}
+\def\leftCell#1{\ttfamily\obeylines\obeyspaces\frenchspacing
+\begin{minipage}[t]{\leftColumnWidth}
+{#1}
+\end{minipage}}
+\def\rightCell#1{
+\begin{minipage}[t]{\rightColumnWidth}
+{#1}
+\end{minipage}}
+
+\begin{longtable}{|p{\leftColumnWidth}|p{\rightColumnWidth}|}
+\hline
+\multicolumn{1}{|c|}{Фрагмент коду} 
+&
+\multicolumn{1}{|c|}{Коментар}
+\\\hline\endhead
+
+\leftCell{def calc(n1,n2,n3,n4,n5):} &
+\\\hline
+
+\leftCell{~~~~res = n5}
+&
+\rightCell{На кожну дощечку розмірами $5{\*}1$ неминуче потрібна окрема ціла дощечка}	
+\\\hline
+
+
+\end{longtable}
+
+
+
+}
+
+

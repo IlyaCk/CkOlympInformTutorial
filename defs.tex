@@ -1,0 +1,121 @@
+\newcounter{lesson}
+\def\lessonname{\CYRZ\cyra\cyrn\cyrya\cyrt\cyrt\cyrya}
+% \newcommand{lesson}{\clearpage\refstepcounter{lesson}\begin{flushright}\begin{underline}\lessonname~\thelesson\end{underline}\end{flushright}}
+\def\lesson{\clearpage\refstepcounter{lesson}%
+\begin{flushright}\begin{slshape}\begin{underline}\lessonname~\thelesson\end{underline}\end{slshape}\end{flushright}}
+% \renewcommand\figurename{\cyr\cyrm\cyra\cyrl.}
+\def\ssc#1{\subsubsection*{#1}}
+%\def\hometask{\ssc{\CYRD\cyro\cyrm\cyra\cyrsh\cyrn\cyrie\ \cyrz\cyra\cyrv\cyrd\cyra\cyrn\cyrn\cyrya.}}
+
+\newcounter{mytmpcnt}
+
+\def\proglistingsize{small}
+\def\smallproglistingsize{footnotesize}
+
+\newenvironment{myproof}%
+{\begin{small}\def\proglistingsize{footnotesize}\par\textbf{Доведення. }}%
+{\hfill$\blacksquare$\par\end{small}}
+
+\newenvironment{mycorol}%
+{\begin{small}\par\textbf{[Наслiдок. }}%
+{\hfill\textbf{]}\par\end{small}}
+
+\def\quine{\CYRK\ifuseushrtinquine\cyrushrt\else\cyrv\fi\cyra\cyrishrt\cyrn}
+% \def\quine{\CYRK\cyrv\cyra\cyrishrt\cyrn}
+
+\def\dib#1{\,#1\discretionary{}{\mbox{$#1$}}{}\,}
+\newcommand*{\dibshort}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}} 
+% "\dibshort" is from Lvovsky--3 (named "\hm"), but it looks even worth than my "\dib" ...
+
+\def\isdiv{\mathbin{\hbox to 0.25em{\hfill\hbox to 0 pt{\raisebox{0pt}{\hss$\cdot$\hss}}\hbox to 0 pt{\raisebox{-.6ex}{\hss$\cdot$\hss}}\hbox to 0 pt{\raisebox{.6ex}{\hss$\cdot$\hss}}\hspace{0.15em}\hfill}\,}}
+\def\bdiv{\mathbin{\mathrm{div}}}
+\def\eps{\varepsilon}
+\def\b{\mathbin{\backslash}}
+\def\U{\cup}
+\def\I{\cap}
+\def\sse{\subseteq}
+\def\u{\vee}
+\def\i{\wedge}
+\def\0{\varnothing}
+\def\notto{\nrightarrow}
+\def\*{\times}
+\def\lr{\leftrightarrow}
+\def\LR{\Leftrightarrow}
+\def\LRdef{\mathbin{\raisebox{0pt}[1ex][0pt]{$\stackrel{\mathrm{def}}{\Longleftrightarrow}$}}}
+\def\THEN{\Rightarrow}
+\def\<{\leqslant}
+\def\>{\geqslant}
+\def\+{\oplus}
+\def\!{\neg}
+\def\ww#1#2#3{\hspace{.5em}\linebreak[3]$u_{#1}\dib{{\to}}u_{{#2}}\dib{{\to}}u_{{#3}}$}
+\def\www#1#2#3#4{\hspace{.5em}\linebreak[3]$u_{#1}\dib{{\to}}u_{{#2}}\dib{{\to}}u_{{#3}}\dib{{\to}}u_{{#4}}$}
+\def\R{\ifmmode{\mathbb{R}}\else{$\mathbb{R}$}\fi}
+\def\N{\ifmmode{\mathbb{N}}\else{$\mathbb{N}$}\fi}
+\def\Z{\ifmmode{\mathbb{Z}}\else{$\mathbb{Z}$}\fi}
+
+\def\Req{\mathbin{R_{\equiv}}}
+
+\def\mypmod#1#2#3{{#1\equiv{}#2\;(\mathrm{mod}\,#3)}}
+\def\mynotpmod#1#2#3{{#1\not\equiv{}#2\;(\mathrm{mod}\,#3)}}
+
+\def\A{\forall}
+\def\E{\exists}
+
+
+\def\ERRORAU#1{}
+% \def\ERRORAU#1{\ifrelease(?)\footnote{#1}\else\begin{Huge}#1\end{Huge}\marginpar{\Huge{???}}\fi}
+
+% \def\ERRORAU#1{\ifrelease{}\else(?)\footnote{#1}\eeeeeeeeee{}\fi}
+
+\newlength{\mytemplen}
+
+\newlength{\mytemplensecond}
+
+% \newlength{\mytemplenlast}
+
+\newlength{\myparindent}
+
+\newsavebox{\beforerotbox}
+
+\newsavebox{\mypictbox}
+
+\newsavebox{\lastsavedgraph}
+
+
+
+\def\mypictureandtext#1#2{%
+\setlength{\myparindent}{\parindent}%
+\savebox{\mypictbox}{\noindent{}#1}%
+\settowidth{\mytemplensecond}{\usebox{\mypictbox}}%
+\setlength{\mytemplen}{\textwidth}%
+\addtolength{\mytemplen}{-\mytemplensecond}%
+\addtolength{\mytemplen}{-3mm}%
+\noindent\mbox{}\hfill\parbox{\mytemplensecond}{\usebox{\mypictbox}}\hfill\hspace{2.5mm}\hfill\parbox{\mytemplen}{\hspace*{\myparindent}#2}\hfill\mbox{}\\
+}
+
+\def\mytextandpicture#1#2{%
+\setlength{\myparindent}{\parindent}%
+\savebox{\mypictbox}{\noindent{}#2}%
+\settowidth{\mytemplensecond}{\usebox{\mypictbox}}%
+\setlength{\mytemplen}{\textwidth}%
+\addtolength{\mytemplen}{-\mytemplensecond}%
+\addtolength{\mytemplen}{-3mm}%
+\noindent\mbox{}\hfill\parbox{\mytemplen}{\hspace*{\myparindent}#1}\hfill\hspace{2.5mm}\hfill\parbox{\mytemplensecond}{\usebox{\mypictbox}}\hfill\mbox{}\\
+}
+
+\def\myflfigaw#1{%
+\savebox{\mypictbox}{\noindent{}#1}%
+\settowidth{\mytemplen}{\usebox{\mypictbox}}%
+% \addtolength{\mytemplen}{1mm}%
+\ifdim\mytemplen<0.75\textwidth%
+\begin{floatingfigure}[r]{\mytemplen}%
+\noindent%
+\usebox{\mypictbox}%
+\vspace{1pt}
+\end{floatingfigure}%
+\else
+\begin{figure*}[h]%
+\usebox{\mypictbox}%
+\end{figure*}%
+\fi%
+}

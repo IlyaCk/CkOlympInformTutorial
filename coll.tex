@@ -1,0 +1,166 @@
+\documentclass[14pt,a4paper]{extarticle}
+
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[english,russian,ukrainian]{babel}
+\usepackage[metapost,truebbox,mplabels]{mfpic}
+\usepackage{listcorr}
+\usepackage{epigraph}
+\usepackage{floatflt}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{textcomp}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{verbatim}
+\usepackage{alltt}
+
+% \twocolumn
+
+% \usepackage[landscape,russian]{olymppp}
+
+\usepackage[ukrainian]{olymppp}
+
+\usepackage{anysize}
+
+\def\dib#1{\,#1\discretionary{}{\mbox{$#1$}}{}\,}
+
+\marginsize{20mm}{20mm}{7mm}{20mm}
+
+
+\renewcommand{\baselinestretch}{1.3125}
+
+\opengraphsfile{pics}
+
+\begin{document}
+
+\def\<{\leqslant}
+\def\>{\geqslant}
+\def\*{\times}
+\def\dib#1{\,#1\discretionary{}{\mbox{$#1$}}{}\,}
+\def\op{\mathop{\rm op}\nolimits}
+\def\bdiv{\mathop{\rm div}\nolimits}
+\def\opt{\mathop{\rm opt}}
+\def\isdiv{\mathbin{\hbox to 0.25em{\hfill\hbox to 0 pt{\raisebox{0pt}{\hss$\cdot$\hss}}\hbox to 0 pt{\raisebox{-.6ex}{\hss$\cdot$\hss}}\hbox to 0 pt{\raisebox{.6ex}{\hss$\cdot$\hss}}\hspace{0.15em}\hfill}\,}}
+
+\newlength{\myparindent}
+
+
+\newlength{\mytemplen}
+\newlength{\mytemplensecond}
+\newlength{\mytemplenthird}
+\newsavebox{\mypictbox}
+\def\myrightfigure#1#2{%
+\savebox{\mypictbox}{\noindent{}#2}%
+\settowidth{\mytemplen}{\usebox{\mypictbox}}%
+\settoheight{\mytemplenthird}{\usebox{\mypictbox}}%
+\ifdim\mytemplen<0.8\textwidth%
+\noindent%
+\setlength{\mytemplensecond}{\textwidth}%
+\addtolength{\mytemplensecond}{-\mytemplen}%
+\addtolength{\mytemplen}{3pt}% ??? better to find alike standard len
+\hspace*{\mytemplensecond}\usebox{\mypictbox}%
+\par\vspace*{-0.5\baselineskip}\par%
+\vspace*{-\mytemplenthird}
+\vspace{-\parskip}
+\hangindent=-\mytemplen
+\hangafter=-#1
+\else
+\begin{center}
+\usebox{\mypictbox}%
+\par
+\end{center}
+% \vspace{-\baselineskip}
+\fi%
+}
+
+\def\mytextandpicture#1#2{%
+\setlength{\myparindent}{\parindent}%
+\savebox{\mypictbox}{\noindent{}#2}%
+\settowidth{\mytemplensecond}{\usebox{\mypictbox}}%
+\setlength{\mytemplen}{\textwidth}%
+\addtolength{\mytemplen}{-\mytemplensecond}%
+\addtolength{\mytemplen}{-3mm}%
+\noindent\mbox{}\hfill\parbox{\mytemplen}{\hspace*{\myparindent}#1}\hfill\hspace{2.5mm}\hfill\parbox{\mytemplensecond}{\usebox{\mypictbox}}\hfill\mbox{}\\
+}
+
+\def\myflfigaw#1{%
+\savebox{\mypictbox}{\noindent{}#1}%
+\settowidth{\mytemplen}{\usebox{\mypictbox}}%
+% \addtolength{\mytemplen}{1mm}%
+\ifdim\mytemplen<0.75\textwidth%
+\begin{floatingfigure}[r]{\mytemplen}%
+\mbox{\noindent%
+\usebox{\mypictbox}%
+\vspace{-6pt}}
+\end{floatingfigure}%
+\else
+\begin{figure*}[h]%
+\usebox{\mypictbox}%
+\end{figure*}%
+\fi%
+}
+
+\def\myhrulefill{\vspace{12mm}\par\vspace*{-12mm}\par\hrulefill}
+
+\newenvironment{problemAllDefault}[1]{\vspace{10mm}\par\begin{problem}{#1}{ лав≥атура (stdin)}{≈кран (stdout)}{1 сек}{64 мегабайти}}{\end{problem}}
+
+
+%%% \in%put pseudo-title
+
+\begin{center}
+
+\begin{huge}
+
+~
+
+\vfill
+
+÷ю стор≥нку зам≥нити на стор≥нку з титулкою, набраною €кимись ≥ншими засобами
+
+\vfill
+
+~
+
+\clearpage
+
+~
+
+\vfill
+
+÷ю стор≥нку зам≥нити на стор≥нку з <<выходными сведени€ми>>, набраною €кимись ≥ншими засобами
+
+\vfill
+
+~
+
+\end{huge}
+
+\end{center}
+
+\clearpage
+
+\input 201314-oioi
+
+\input 201314-2
+
+\input 201314-3a
+
+\input 201415-oioi
+
+\input 201415-2
+
+\input 201415-3
+
+%%% \renewcommand{\baselinestretch}{1}
+
+\tableofcontents
+
+
+
+\end{document}
