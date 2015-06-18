@@ -19,7 +19,7 @@ public class SubstAll {
             return;
         }
 	    try {
-            PrintWriter out = new PrintWriter(args[1], "cp1251");
+            PrintWriter out = new PrintWriter(args[1], "utf8");
             doAll(args[0], out);
             out.close();
         } catch (Exception e) {
@@ -42,13 +42,13 @@ public class SubstAll {
         }
         Scanner in = null;
         try {
-            in = new Scanner(fin, "cp1251");
+            in = new Scanner(fin, "utf8");
         } catch (FileNotFoundException e) {
             System.err.println("Smth extremely strange: file ``" + fin.toString() + "''\n was said existing by File's methods,\n but cannot be opened with Scanner's constructor");
             e.printStackTrace(System.err) ;
         }
         try {
-            int lineNumber = 0;
+//            int lineNumber = 0;
             while(in.hasNextLine()) {
                 String curr = in.nextLine();
 //                lineNumber++;

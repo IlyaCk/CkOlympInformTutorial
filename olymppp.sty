@@ -158,24 +158,24 @@
 % -- Setup keywords --
 
 \if@ukrainian
-\def\kw@Problem{Задача}
-\def\kw@InputFileName{Вхідні дані:}
-\def\kw@OutputFileName{Результати:}
-\def\kw@TimeLimit{Обмеження часу:}
-\def\kw@MemoryLimit{Обмеження пам'яті:}
-\def\kw@stdin{клавіатура (стандартний потік введення)}
-\def\kw@stdout{екран (стандартний потік виведення)}
-\def\kw@Task{Завдання}
-\def\kw@Input{Вхідні дані}
-\def\kw@Output{Результати}
-\def\kw@Example{Приклад}
-\def\kw@Examples{Приклади}
-\def\kw@Scoring{Оцінювання}
-\def\kw@page{Сторінка}
-\def\kw@of{з}
-\def\kw@Note{Примітка}
-\def\kw@Notes{Примітки}
-\def\kw@Tutorial{Розбір задачі}
+\def\kw@Problem{Р—Р°РґР°С‡Р°}
+\def\kw@InputFileName{Р’С…С–РґРЅС– РґР°РЅС–:}
+\def\kw@OutputFileName{Р РµР·СѓР»СЊС‚Р°С‚Рё:}
+\def\kw@TimeLimit{РћР±РјРµР¶РµРЅРЅСЏ С‡Р°СЃСѓ:}
+\def\kw@MemoryLimit{РћР±РјРµР¶РµРЅРЅСЏ РїР°Рј'СЏС‚С–:}
+\def\kw@stdin{РєР»Р°РІС–Р°С‚СѓСЂР° (СЃС‚Р°РЅРґР°СЂС‚РЅРёР№ РїРѕС‚С–Рє РІРІРµРґРµРЅРЅСЏ)}
+\def\kw@stdout{РµРєСЂР°РЅ (СЃС‚Р°РЅРґР°СЂС‚РЅРёР№ РїРѕС‚С–Рє РІРёРІРµРґРµРЅРЅСЏ)}
+\def\kw@Task{Р—Р°РІРґР°РЅРЅСЏ}
+\def\kw@Input{Р’С…С–РґРЅС– РґР°РЅС–}
+\def\kw@Output{Р РµР·СѓР»СЊС‚Р°С‚Рё}
+\def\kw@Example{РџСЂРёРєР»Р°Рґ}
+\def\kw@Examples{РџСЂРёРєР»Р°РґРё}
+\def\kw@Scoring{РћС†С–РЅСЋРІР°РЅРЅСЏ}
+\def\kw@page{РЎС‚РѕСЂС–РЅРєР°}
+\def\kw@of{Р·}
+\def\kw@Note{РџСЂРёРјС–С‚РєР°}
+\def\kw@Notes{РџСЂРёРјС–С‚РєРё}
+\def\kw@Tutorial{Р РѕР·Р±С–СЂ Р·Р°РґР°С‡С–}
 \else
 \def\kw@Problem{Problem}
 \def\kw@InputFileName{Input file:}
@@ -230,7 +230,7 @@
 % -- Default limits --
 
 \if@ukrainian
-\def\defaultmemorylimit{256 мегабайтів}
+\def\defaultmemorylimit{256 РјРµРіР°Р±Р°Р№С‚С–РІ}
 \else
 \def\defaultmemorylimit{256 megabytes}
 \fi
@@ -238,7 +238,7 @@
 \def\defaultinput{\kw@stdin}
 \def\defaultoutput{\kw@stdout}
 \if@ukrainian
-\def\defaulttimelimit{1 сек.}
+\def\defaulttimelimit{1 СЃРµРє.}
 \else
 \def\defaulttimelimit{1 sec.}
 \fi
@@ -362,8 +362,8 @@
 	\begin{small}%
     \begin{tabular}{|l|l|}
         \hline
-        \multicolumn{1}{|c|}{\bf\texttt{Вхідні дані}}&
-        \multicolumn{1}{|c|}{\bf\texttt{Результати}}\\
+        \multicolumn{1}{|c|}{\bf\texttt{Р’С…С–РґРЅС– РґР°РЅС–}}&
+        \multicolumn{1}{|c|}{\bf\texttt{Р РµР·СѓР»СЊС‚Р°С‚Рё}}\\
         \hline
 }{
     \end{tabular}
@@ -380,15 +380,15 @@
 	\begin{small}%
     \begin{longtable}{|l|l|}
         \hline
-        \multicolumn{1}{|c|}{\bf\texttt{Вхідні дані}}&
-        \multicolumn{1}{|c|}{\bf\texttt{Результати}}\\*
+        \multicolumn{1}{|c|}{\bf\texttt{Р’С…С–РґРЅС– РґР°РЅС–}}&
+        \multicolumn{1}{|c|}{\bf\texttt{Р РµР·СѓР»СЊС‚Р°С‚Рё}}\\*
         \endhead\hline
 }{
     \end{longtable}
 	\end{small}
 }
 
-\newenvironment{exampleSimpleThree}[4]{\begin{exampleSimpleThreeWithSpecNameColTwo}{#1}{#2}{#3}{Результати}{#4}}{\end{exampleSimpleThreeWithSpecNameColTwo}}
+\newenvironment{exampleSimpleThree}[4]{\begin{exampleSimpleThreeWithSpecNameColTwo}{#1}{#2}{#3}{Р РµР·СѓР»СЊС‚Р°С‚Рё}{#4}}{\end{exampleSimpleThreeWithSpecNameColTwo}}
 
 \newenvironment{exampleSimpleThreeWithSpecNameColTwo}[5]{
     \ttfamily\obeylines\obeyspaces\frenchspacing
@@ -404,7 +404,7 @@
 	\nopagebreak
     \begin{longtable}{|l|l|l|}%
         \hline%
-        \multicolumn{1}{|c|}{\bf\texttt{Вхідні дані}}&
+        \multicolumn{1}{|c|}{\bf\texttt{Р’С…С–РґРЅС– РґР°РЅС–}}&
         \multicolumn{1}{|c|}{\bf\texttt{#4}}&
         \multicolumn{1}{|c|}{\bf\texttt{#5}}\\*
         \endhead\hline
