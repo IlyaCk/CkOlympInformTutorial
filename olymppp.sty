@@ -7,7 +7,7 @@
 %
 %
 % This is work in progress, please do not try to modify it. -- VIOLATED!
-% VIOLATED BY ilya, but renamed from ``olymp'' to ``olymppp''
+% VIOLATED BY IlyaCk, but renamed from ``olymp'' to ``olymppp''
 % 
 % Visit http://neerc.ifmo.ru/develop/olymp-sty/index.html for
 % project details.
@@ -114,8 +114,8 @@
 
 \newlength{\afterproblemhead}
 \newlength{\afterconstraints}
-\afterproblemhead=3mm
-\afterconstraints=2mm
+\afterproblemhead=2mm
+\afterconstraints=1.5mm
 
 \newcommand{\problemheadfont}{\Large}
 \newcommand{\problemsectionfontsav}{\large}
@@ -150,7 +150,8 @@
 % \fi
 
 \parindent=0mm
-\parskip=3pt
+\parskip=3pt plus 3pt
+\flushbottom
 
 
 % -- End of setup sizes --
@@ -204,8 +205,8 @@
 
 \newcommand{\createsection}{\@newsection}
 
-\def\@newsection#1#2{\DeclareRobustCommand{#1}{
-{\beforeproblemsectioncaption\noindent\bf\problemsectionfont
+\def\@newsection#1#2{\DeclareRobustCommand{#1}{%
+{\beforeproblemsectioncaption\noindent\bf\problemsectionfont%
 \textsf{#2}\hspace{1em}}
 \afterproblemsectioncaption}
 }
@@ -249,51 +250,50 @@
 
 \newcounter{problem}
 
-\newenvironment{problem}[5]{
+\newenvironment{problem}[5]{%
+% % % % -- Default memory limit --
+% % % % :FIXME:
+% % % \def\@t{#5}
 
-% -- Default memory limit --
-% :FIXME:
-\def\@t{#5}
-
-\ifx\@t\empty
-    \def\@memorylimit{\defaultmemorylimit}
-\else
-\ifcat\par\@t
-    \def\@memorylimit{\defaultmemorylimit}
-\else
-    \def\@memorylimit{#5}
-\fi
-\fi
-% -- End of default memory limit --
-
-    {
-	\pagebreak[2]
+% % % \ifx\@t\empty
+    % % % \def\@memorylimit{\defaultmemorylimit}
+% % % \else
+% % % \ifcat\par\@t
+    % % % \def\@memorylimit{\defaultmemorylimit}
+% % % \else
+    % % % \def\@memorylimit{#5}
+% % % \fi
+% % % \fi
+% % % % -- End of default memory limit --
+    {%
+	\pagebreak[2]%
+	\addcontentsline{toc}{subsubsection}{\Alph{problem} <<#1>>}%
+	\vspace{0.25\baselineskip plus 12pt}%without star!!! only when at the same page!!! -- IlyaCk
 	\begin{minipage}{\textwidth}
-        \noindent
-        \refstepcounter{problem}
-%        \textbf{\problemheadfont\textsf{\kw@Problem\ \if@arabic\arabic{problem}.\else\Alph{problem}.\fi\\*<<#1>>}}\par
+        \noindent%
+        \refstepcounter{problem}%
         \textbf{\problemheadfont\textsf{\kw@Problem\ \if@arabic\arabic{problem}.\else\Alph{problem}.\fi{} <<#1>>}}\par
         \nopagebreak
         \par\vspace{\afterproblemhead}
 %%%        \problemtextfont\parindent=6.5mm
-        \begin{footnotesize}
+        \begin{small}
 	        \vbox{
-	           \begin{tabular}{l@{\extracolsep{1cm}}l}
-	           \kw@InputFileName & \texttt{#2} \\
-	           \kw@OutputFileName & \texttt{#3} \\
+	           \begin{tabular}{@{}l@{\extracolsep{2mm}}ll@{\extracolsep{2mm}}l}
+	           \kw@InputFileName & {#2} &
 	           \kw@TimeLimit & #4 \\
-	           \kw@MemoryLimit & \@memorylimit \\
+	           \kw@OutputFileName & {#3} &
+	           \kw@MemoryLimit & #5 \\
 	           \end{tabular}
 	        }
-		\end{footnotesize}
+		\end{small}
         \nopagebreak
         \par\vspace{\afterconstraints}
-		\addcontentsline{toc}{subsection}{\Alph{problem} <<#1>>}
 	\end{minipage}
     }\problemtextfont
 
     \newcommand{\InputFileName}{#2}
     \newcommand{\OutputFileName}{#3}
+	\nopagebreak
 }{
     \problemend
 }

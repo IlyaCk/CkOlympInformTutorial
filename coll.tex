@@ -1,11 +1,12 @@
 \documentclass[14pt,a4paper]{extarticle}
 
+% % % \usepackage{arial}
 \usepackage{cmap}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian,ukrainian]{babel}
 \usepackage[metapost,truebbox,mplabels]{mfpic}
-\usepackage{listcorr}
+\usepackage{enumitem}
 \usepackage{epigraph}
 \usepackage{floatflt}
 \usepackage{multicol}
@@ -27,12 +28,14 @@
 \usepackage[ukrainian]{olymppp}
 
 \usepackage{anysize}
+\usepackage{listcorr}
 
 \def\dib#1{\,#1\discretionary{}{\mbox{$#1$}}{}\,}
 
 \marginsize{20mm}{20mm}{7mm}{20mm}
 
 
+% \renewcommand{\baselinestretch}{1.28125}
 \renewcommand{\baselinestretch}{1.3125}
 
 \opengraphsfile{pics}
@@ -106,12 +109,17 @@
 \fi%
 }
 
-\def\myhrulefill{\vspace{12mm}\par\vspace*{-12mm}\par\hrulefill}
+\def\myhrulefill{\vspace{\baselineskip}\par\vspace*{-1.75\baselineskip}\par\hrulefill\par\vspace{-0.5\baselineskip}}
 
 \newenvironment{problemAllDefault}[1]{\vspace{10mm}\par\begin{problem}{#1}{Клавіатура (stdin)}{Екран (stdout)}{1 сек}{64 мегабайти}}{\end{problem}}
 
+\newif{\ifallIdeOneLinksCopiedHere}
+\allIdeOneLinksCopiedHerefalse
+
 
 %%% \in%put pseudo-title
+
+% % % \begin{sffamily}
 
 \begin{center}
 
@@ -145,6 +153,24 @@
 
 \clearpage
 
+\renewcommand{\thecontestname}{Олімпіади з інформатики (програмування)}
+\renewcommand{\thecontestlocation}{Черкаська обл.}
+\renewcommand{\thecontestdate}{2013--2015 роки}
+
+\newcommand{\stdinOrInputTxt}{Або клавіатура, або input.txt}
+\newcommand{\stdoutOrOutputTxt}{Або екран, або output.txt}
+
+
+\tableofcontents
+
+
+\input intro
+
+\input FAQ
+
+\section{Задачі та розбори}
+\vspace{-0.5\baselineskip}
+
 \input 201314-oioi
 
 \input 201314-2
@@ -153,14 +179,20 @@
 
 \input 201415-oioi
 
+\addtocontents{toc}{\protect\pagebreak\par}
+
 \input 201415-2
 
 \input 201415-3
 
-%%% \renewcommand{\baselinestretch}{1}
+% % % \clearpage
 
-\tableofcontents
+\renewcommand{\thecontestname}{Олімпіади з інформатики (програмування)}
+\renewcommand{\thecontestlocation}{Черкаська обл.}
+\renewcommand{\thecontestdate}{2013--2015 роки}
 
+% % % \renewcommand{\baselinestretch}{0.875}
 
+% % % \end{sffamily}
 
 \end{document}

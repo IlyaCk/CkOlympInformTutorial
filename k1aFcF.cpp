@@ -10,7 +10,7 @@ struct Point
         double x, y;
 };
 
-// many computational geometry functions were here, but they are intentionally deleted
+// тут було багато функцій обчислювальної геометрії, але вони були свідомо видалені
 
 pair<double, double> solve_system_2x2(const Point &p1, const Point &p2, const Point &right_part)
 {
