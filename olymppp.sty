@@ -267,11 +267,11 @@
 % % % % -- End of default memory limit --
     {%
 	\pagebreak[2]%
+	\refstepcounter{problem}%
 	\addcontentsline{toc}{subsubsection}{\Alph{problem} <<#1>>}%
 	\vspace{0.25\baselineskip plus 12pt}%without star!!! only when at the same page!!! -- IlyaCk
 	\begin{minipage}{\textwidth}
         \noindent%
-        \refstepcounter{problem}%
         \textbf{\problemheadfont\textsf{\kw@Problem\ \if@arabic\arabic{problem}.\else\Alph{problem}.\fi{} <<#1>>}}\par
         \nopagebreak
         \par\vspace{\afterproblemhead}

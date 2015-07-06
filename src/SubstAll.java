@@ -2,6 +2,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import java.util.Calendar;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -61,7 +62,7 @@ public class SubstAll {
         }
 
         in.close();
-        System.out.println("doAll(" + fileName + ", ...) successfully finished");
+        System.out.println("doAll(" + fileName + ", ...) successfully finished at " + Calendar.getInstance().getTime());
     }
 
     private static void processLine(String curr, PrintWriter out) {
